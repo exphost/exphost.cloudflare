@@ -1,4 +1,5 @@
-- cloudflare_dns:
+- name: set up dns entry
+  cloudflare_dns:
     zone: "{{ _zone.key }}"
     record: "{{ _record.key }}"
     solo: true
@@ -8,5 +9,3 @@
   loop: "{{ _record.value|default([]) }}"
   loop_control:
     loop_var: _entry
-
-

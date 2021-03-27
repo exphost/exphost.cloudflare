@@ -1,4 +1,5 @@
-- include_tasks: loop_record.yml
+- name: include tasks for records
+  include_tasks: loop_record.yml
   loop: "{{ _zone.value.records|default({})|dict2items }}"
   loop_control:
     loop_var: _record
