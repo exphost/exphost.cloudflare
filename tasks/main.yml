@@ -1,0 +1,10 @@
+- name: debug
+  debug:
+    msg: "Jeste cloudflare"
+
+- include_tasks: loop_zone.yml
+  loop: "{{ app.value.dns.configs.zones|default({})|dict2items }}"
+  loop_control:
+    loop_var: _zone
+
+- pause:

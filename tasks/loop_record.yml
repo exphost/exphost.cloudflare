@@ -1,0 +1,12 @@
+- cloudflare_dns:
+    zone: "{{ _zone.key }}"
+    record: "{{ _record.key }}"
+    solo: true
+    type: "{{ _entry.type }}"
+    value: "{{ _entry.value }}"
+    api_token: "{{ _zone.value.configs.api_key }}"
+  loop: "{{ _record.value|default([]) }}"
+  loop_control:
+    loop_var: _entry
+
+
